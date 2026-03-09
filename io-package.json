@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "sigenergy",
-    "version": "1.0.1",
+    "version": "1.0.4",
     "news": {
       "1.0.1": {
         "en": "Stable release v1.0.1: pure Modbus data adapter without VIS widgets",
