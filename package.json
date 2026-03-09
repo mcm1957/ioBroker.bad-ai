@@ -1,50 +1,62 @@
 {
-  "name": "iobroker.vis-2-widgets-sigenergy",
-  "version": "0.1.5",
-  "description": "Widgets for Sigenergy",
+  "name": "iobroker.sigenergy",
+  "version": "1.0.1",
+  "description": "ioBroker adapter for Sigenergy solar energy systems via Modbus TCP/RTU",
   "author": {
-    "name": "ssbingo",
-    "email": "s.sternitzke@online.de"
+    "name": "ioBroker Community",
+    "email": "info@iobroker.net"
   },
-  "contributors": [],
-  "homepage": "https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy",
+  "homepage": "https://github.com/ssbingo/ioBroker.sigenergy",
   "license": "MIT",
   "keywords": [
     "sigenergy",
-    "vis-2"
+    "solar",
+    "modbus",
+    "energy",
+    "inverter",
+    "battery",
+    "pv",
+    "iobroker"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:ssbingo/ioBroker.vis-2-widgets-sigenergy.git"
+    "url": "https://github.com/ssbingo/ioBroker.sigenergy.git"
   },
-  "engines": {
-    "node": ">= 20"
+  "dependencies": {
+    "@iobroker/adapter-core": "^3.3.2",
+    "modbus-serial": "^8.0.23"
   },
-  "dependencies": {},
   "devDependencies": {
-    "@alcalzone/release-script": "^5.1.1",
-    "@alcalzone/release-script-plugin-iobroker": "^5.1.2",
-    "@alcalzone/release-script-plugin-license": "^5.1.1",
-    "@alcalzone/release-script-plugin-manual-review": "^5.1.1",
-    "@iobroker/adapter-dev": "^1.5.0",
-    "@iobroker/testing": "^5.2.2"
+    "@eslint/js": "^9.10.0",
+    "@iobroker/dev-server": "^0.8.0",
+    "@iobroker/testing": "^5.2.2",
+    "eslint": "^9.10.0",
+    "mocha": "^10.0.0"
   },
-  "main": "widgets/vis-2-widgets-sigenergy.html",
+  "main": "main.js",
   "files": [
-    "widgets/**/!(tsconfig|tsconfig.*|.eslintrc).json",
-    "widgets/**/*.{html,css,png,svg,jpg,js}",
-    "www/",
-    "io-package.json",
-    "LICENSE"
+    "admin/",
+    "lib/",
+    "main.js",
+    "io-package.json"
   ],
+  "engines": {
+    "node": ">= 18.0.0"
+  },
   "scripts": {
+    "start": "node node_modules/@iobroker/dev-server/build/main.js watch",
+    "watch": "node node_modules/@iobroker/dev-server/build/main.js watch",
     "test:package": "mocha test/package --exit",
     "test": "npm run test:package",
-    "translate": "translate-adapter",
-    "release": "release-script"
+    "lint": "eslint ."
   },
   "bugs": {
-    "url": "https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/issues"
+    "url": "https://github.com/ssbingo/ioBroker.sigenergy/issues"
   },
-  "readmeFilename": "README.md"
+  "overrides": {
+    "node-gyp": "^10.3.1"
+  },
+  "optionalDependencies": {
+    "serialport": "^12.0.0"
+  }
 }
