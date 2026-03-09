@@ -7,14 +7,6 @@
         "en": "Stable release v1.0.1: pure Modbus data adapter without VIS widgets",
         "de": "Stabile Version v1.0.1: reiner Modbus-Datenadapter ohne VIS-Widgets"
       },
-      "0.2.18": {
-        "en": "Fix io-package.json schema: add licenseInformation, connectionType, dataSource, dependencies",
-        "de": "io-package.json Schema korrigiert: licenseInformation, connectionType, dataSource, Abhängigkeiten hinzugefügt"
-      },
-      "0.1.0": {
-        "en": "Initial release",
-        "de": "Erste Veröffentlichung"
-      }
     },
     "title": "Sigenergy",
     "titleLang": {
