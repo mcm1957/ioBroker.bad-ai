@@ -1,0 +1,120 @@
+/* ioBroker.vis vis-2-widgets-sigenergy — Widget CSS */
+
+/* ── Gemeinsam ─────────────────────────────────────────────────────────── */
+.sig-w {
+    width: 100%; height: 100%;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ── Widget 1: Energiefluss ─────────────────────────────────────────────── */
+.sig-ef-wrap {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #e0e6ef;
+    border-radius: 14px; padding: 10px 10px 6px;
+    width: 100%; height: 100%; box-sizing: border-box;
+    display: flex; flex-direction: column;
+}
+.sig-ef-wrap.light {
+    background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+    color: #2c3e50;
+}
+.sig-ef-title {
+    font-size: .65rem; text-transform: uppercase;
+    letter-spacing: 1px; text-align: center;
+    margin-bottom: 4px; opacity: .7; flex-shrink: 0;
+}
+.sig-ef-svg-wrap { flex: 1; min-height: 0; }
+.sig-ef-svg-wrap svg { width: 100%; height: 100%; }
+@keyframes sig-dash { to { stroke-dashoffset: -24; } }
+.sig-flow-path {
+    fill: none; stroke-width: 2.5;
+    stroke-dasharray: 8, 4;
+    stroke-dashoffset: 0;
+    opacity: 0.15;
+    transition: opacity 0.4s;
+}
+.sig-flow-path.active {
+    opacity: 1;
+    animation: sig-dash 0.9s linear infinite;
+}
+.pv-color    { stroke: #f39c12; }
+.bat-color   { stroke: #9b59b6; }
+.grid-color  { stroke: #3498db; }
+.house-color { stroke: #27ae60; }
+
+/* ── Widget 2: Akku-Status ──────────────────────────────────────────────── */
+.sig-bat-wrap {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #e0e6ef;
+    border-radius: 14px; padding: 14px;
+    width: 100%; height: 100%; box-sizing: border-box;
+}
+.sig-bat-wrap.light {
+    background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+    color: #2c3e50;
+}
+.sig-bat-head        { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.sig-bat-head .icon  { font-size: 1.1rem; }
+.sig-bat-head .title { font-size: .9rem; font-weight: 600; }
+.sig-bat-soh {
+    margin-left: auto; font-size: .6rem; opacity: .6;
+    background: rgba(255,255,255,.1); padding: 2px 7px; border-radius: 4px;
+}
+.sig-bat-wrap.light .sig-bat-soh { background: rgba(0,0,0,.07); }
+.sig-soc-big     { font-size: 2.4rem; font-weight: 700; text-align: center; margin-bottom: 6px; }
+.sig-soc-bar-bg  { background: rgba(255,255,255,.1); border-radius: 6px; height: 10px; margin-bottom: 4px; }
+.sig-bat-wrap.light .sig-soc-bar-bg { background: rgba(0,0,0,.08); }
+.sig-soc-bar-fill { height: 100%; border-radius: 6px; transition: width .5s; }
+.sig-soc-labels   { display: flex; justify-content: space-between; font-size: .55rem; opacity: .5; margin-bottom: 10px; }
+.sig-bat-stats    { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.sig-stat-box     { background: rgba(255,255,255,.07); border-radius: 8px; padding: 8px; text-align: center; }
+.sig-bat-wrap.light .sig-stat-box { background: rgba(0,0,0,.04); border: 1px solid #e8eef5; }
+.sig-stat-label   { font-size: .6rem; opacity: .65; margin-bottom: 3px; }
+.sig-stat-val     { font-size: .9rem; font-weight: 700; }
+
+/* ── Widget 3: Echtzeit-Leistung ────────────────────────────────────────── */
+.sig-pow-wrap {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #e0e6ef;
+    border-radius: 14px; padding: 14px;
+    width: 100%; height: 100%; box-sizing: border-box;
+}
+.sig-pow-wrap.light { background: #fff; color: #2c3e50; border: 1px solid #e8eef5; }
+.sig-pow-title {
+    font-size: .65rem; text-transform: uppercase;
+    letter-spacing: .5px; opacity: .7; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+}
+@keyframes sig-pulse {
+    0%,100% { transform: scale(1);   opacity: 1;  }
+    50%      { transform: scale(1.5); opacity: .4; }
+}
+.sig-live-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #e74c3c; animation: sig-pulse 1.8s infinite; flex-shrink: 0;
+}
+.sig-pow-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+.sig-pow-wrap.light .sig-pow-row { border-bottom-color: #f0f4f8; }
+.sig-pow-row:last-child { border-bottom: none; }
+.sig-pow-left { display: flex; align-items: center; gap: 8px; font-size: .8rem; }
+.sig-pow-val  { font-size: .85rem; font-weight: 700; }
+.sig-dot      { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+
+/* ── Widget 4: Energiestatistiken ───────────────────────────────────────── */
+.sig-stats-wrap {
+    background: #fff; color: #2c3e50;
+    border-radius: 14px; padding: 14px;
+    width: 100%; height: 100%; box-sizing: border-box;
+    border: 1px solid #e8eef5;
+}
+.sig-stats-wrap.dark {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #e0e6ef; border: none;
+}
+.sig-stats-title { font-size: .65rem; text-transform: uppercase; letter-spacing: .5px; opacity: .7; margin-bottom: 10px; }
+.sig-stats-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.sig-stats-item  { background: #f7f9fc; border: 1px solid #e8eef5; border-radius: 10px; padding: 10px; text-align: center; }
+.sig-stats-wrap.dark .sig-stats-item { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.08); }
+.s-label { font-size: .58rem; opacity: .65; text-transform: uppercase; margin-bottom: 4px; }
+.s-value { font-size: 1.2rem; font-weight: 700; }
